@@ -2,9 +2,12 @@ package by.itacademy;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
+
+        //Конвеерные операторы
 
       /*  List<Integer> list = new ArrayList<>();
 
@@ -27,13 +30,20 @@ public class Main {
                 .filter(n -> n%2 == 0)//Оставляем четные
                 .collect(Collectors.toList());
 */
-    int[] ints = {1,2,3,4};
-    List<Integer> x = Arrays.stream(ints)
-            .filter(n -> n%2 ==0)
-            .boxed()
-            .collect(Collectors.toList());
-    
-        System.out.println(x);
+    int[] ints = {1,2,3,4,5,6,7,8,9,10,11};
+
+    //Терминальные операторы
+
+    IntStream stream = Arrays.stream(ints);
+        OptionalInt opt = stream.findAny(); //Возвращает любое значение из колеекции, для Int возвращает первое значение.
+
+        if(opt.isPresent()){
+            System.out.println(opt.getAsInt()); //Проверяем объект на null
+        }
+
+
+
+
 
 
 
